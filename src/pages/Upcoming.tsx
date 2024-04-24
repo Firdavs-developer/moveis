@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { axiosInstance } from '../axiosInstance';
 import Title from 'antd/es/typography/Title';
 import { Link } from 'react-router-dom';
-import SearchMovie from '../components/SearchMovie';
+// import SearchMovie from '../components/SearchMovie';
 import Loading from '../components/Loading';
 
 interface IMovies {
@@ -30,7 +30,7 @@ const UpComing = () => {
   
   return (
     <>
-      <SearchMovie/>    
+      {/* <SearchMovie/>     */}
       <Row gutter={[16, 16]} style={{ padding: "20px", }}>
         <div className='container'>
           {movies.results.map((movie: IMovies) => (

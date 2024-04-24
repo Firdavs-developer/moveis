@@ -3,7 +3,6 @@ import { useQuery } from 'react-query';
 import { axiosInstance } from '../axiosInstance';
 import Title from 'antd/es/typography/Title';
 import { Link } from 'react-router-dom';
-import SearchMovie from '../components/SearchMovie';
 import Loading from '../components/Loading';
 
 interface IMovies {
@@ -25,15 +24,15 @@ const TopMovies = () => {
   if(isLoading) return <Loading/>
   if(error instanceof Error) return <h1>{error.message}</h1>
   
-  console.log(movies);
+ 
   
   
   return (
     <>
-      <SearchMovie/>    
+      {/* <SearchMovie movies={movies} setPopular={setPopular}/>     */}
       <Row gutter={[16, 16]} style={{ padding: "20px", }}>
         <div className='container'>
-          {movies.results.map((movie: IMovies) => (
+         {movies.results.map((movie: IMovies) => (
             <Col className='col-movie' xs={24} sm={12} md={8} lg={6} >
               <Link to={`/popular/${movie.id}`}>
                 <Card className='col-card'  cover={<img alt="example" src={`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`} style={{ height: "300px", width: '300px', marginTop: '20px', cursor: "pointer" }} />}>
@@ -41,7 +40,7 @@ const TopMovies = () => {
                 </Card>
               </Link>
             </Col>
-          ))}
+          ))} 
         </div>
       </Row>
     </>
